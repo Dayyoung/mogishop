@@ -1,0 +1,4 @@
+var USERDATA;
+
+function goHome() {
+}
