@@ -35,9 +35,7 @@ console.log('onCreate.')
   });
 
   $('[class*="_skillofeveryone"]').click(function(){
-    localStorage.removeItem('userID');
-    localStorage.removeItem('cartID');
-    window.location.reload(true);
+    logOut();
   });
 
   checkUserID();
@@ -62,6 +60,12 @@ console.log('onCreate.')
   }
 })
 
+}
+
+function logOut(){
+    localStorage.removeItem('userID');
+    localStorage.removeItem('cartID');
+    window.location.reload(true);
 }
 
 function loadscript(url,callback) {
@@ -114,7 +118,8 @@ function checkUserID(){
     toastr.options.timeOut = -1;
     toastr.options.fadeOut = 250;
     toastr.options.fadeIn = 250;    
-    toastr.success("Welcome to number "+userID) 
+    //toastr.success("Welcome to number "+userID) 
+    toastr.success('<center><button type="button" class="btn clear btn-toastr" onclick="logOut()">LogOut</button></center>' , "Welcome to Number : "+userID);
   } 
 }
 
